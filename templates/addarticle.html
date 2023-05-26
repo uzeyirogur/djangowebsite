@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block all %}
+
+{% load crispy_forms_tags %}
+
+<div class = "jumbotron text-left">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <h3><font color="red" >MAKALE OLUŞTUR </h3>
+            <hr>
+
+            <form method = "post"  >
+                {% csrf_token %} 
+               
+                {{ form|crispy}}  
+                
+                <br>
+                <button type ="submit" class = "btn btn-danger" style = "width:100%">MAKALE OLUŞTUR </button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock  %}

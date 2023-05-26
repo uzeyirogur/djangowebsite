@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block all %}
+
+<div class="row">
+    <div class="jumbotron text-left">
+        <!-- Post content-->
+        <article>
+            <!-- Post header-->
+            <header class="mb-4">
+                <!-- Post title-->
+                <h1 class="fw-bolder mb-1"><i><b>{{article.title}}</b></h1>
+                <!-- Post meta content-->
+                <div style="color:red;" ><b>by {{article.author}}</b></div>
+                <div style="color:black;"><b>{{article.created_date}}</b></div>
+                
+            </header>
+           
+            
+            <hr>
+            <img class ="img-fluid rounded" src= "{{article.article_image.urls}}" alt="">
+            <section class="mb-5">
+                <i><b>{{article.content}}<b>
+            </section>
+        </article>
+       
+                    
+       
+       
+        
+    </div>
+</div>
+
+{% endblock  %}

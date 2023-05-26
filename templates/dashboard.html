@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+
+{% block all %}
+<div class = "jumbotron text-left">
+    <h2 class = "text-center"><i><b>KONTROL PANELİ</h2>
+    <hr>
+    <p align="left" >
+        HOŞGELDİNİZ : {{request.user.username}}
+    </p>
+    <hr>
+    <a  class ="btn btn-danger" href = "/articles/addarticle" >MAKALE EKLE</a>
+    <hr>
+    {% if articles %}
+    <table class="table" >
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for article in articles  %}
+          <tr>
+            <th scope="row">{{article.id}}</th>
+            <td><a href = "/articles/article/{{article.id}}">{{article.title}}</td>
+            <td>{{article.author}}</td>
+            <td>{{article.created_date}}</td>
+            <td><a href = "/article/update/{{article.id}}" class = "btn btn-success">Güncelle</td>
+            <td><a href = "/article/delete/{{article.id}}" class = "btn btn-danger">Sil</td>
+          </tr>
+          {% endfor %}
+          
+          
+            
+         
+        </tbody>
+    </table>
+    {% else %}
+        <div  class = "alert alert-danger">
+            Henüz bir makaleniz bulunmuyor...
+        </div>
+    {% endif %}
+    
+      
+</div>
+
+
+  
+
+{% endblock  %}

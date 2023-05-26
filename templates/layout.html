@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width,inital-scale=1.0">
+    <meta htpp-equiv = "X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet " href = "{% static 'style.css' %}">
+    <link rel = "stylesheet " href = "{% static 'css/bootstrap.min.css' %}">
+    <title>BlogUzo</title>
+</head>
+<body>
+    {% include "includes/navbar.html" %}
+
+    
+    <div style ="margin-top : 100px;" class = "container">
+
+        {% if messages %}
+            {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% block all %}
+        
+        {% endblock  %}
+
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+    <script src="{% static 'js/bootstrap.min.js'%}"></static>
+    <script src="{% static 'js/jquery.3.7.0.min.js'%}"></static>
+</body>
+</html>
